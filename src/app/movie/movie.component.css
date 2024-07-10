@@ -1,0 +1,47 @@
+
+
+.text-size{
+    border-radius: 50%;
+}
+
+input.ng-invalid.ng-touched {
+    border: red 2px solid;
+}
+
+
+button{
+    height: 50px;
+    width: 200px;
+}
+
+
+.btn1{
+    color:red;
+}
+
+.btn2{
+    color:blue;
+}
+
+.btn3{
+    color:rgb(12, 239, 12);
+}
+
+.btn4{
+    color:rgb(50, 50, 55);
+}
+
+
+.success{
+    color: green;
+}
+
+.warning{
+    color: orange;
+}
+
+.fail{
+    color: red;
+}
+
+

@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active current bold" routerLink="/login">Login </a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link active" routerLinkActive="active current bold" routerLink="/tag">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active current bold" [routerLink]="['/movie/1/mask']" >Movies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" routerLinkActive="active current bold" href="#">Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<app-test-modal #modal></app-test-modal>
+<p>
+Open a Pure HTML + CSS with Angular
+</p>
+<button (click)="openModal()">Open Modal</button>
+
+<form #f="ngForm" (ngSubmit)="submit(f)" class="mx-5">
+  <div ngModelGroup="contact" #contact="ngModelGroup">
+    <div class="row">
+      <div class="form-group col-lg-3">
+        <label for="firsName">First Name</label>
+        <input
+          required
+          minlength="3"
+          [attr.maxlength]="btnSubmitClicked1 ? 10 : null"
+          pattern="salar"
+          ngModel
+          name="firsName"
+          #firstName="ngModel"
+          (change)="log(firstName)"
+          id="firsName"
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="firstName.touched && !firstName.valid"
+        >
+          <div *ngIf="firstName.errors?.['required']">
+            First Name is Required!
+          </div>
+          <div *ngIf="firstName.errors?.['minlength']">
+            First Name must be at least 3 character!
+          </div>
+          <div *ngIf="firstName.errors?.['pattern']">
+            First Name must be at like pattern!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-lg-3">
+        <label for="comment">Comment</label>
+        <textarea
+          id="comment"
+          ngModel
+          name="comment"
+          class="form-control"
+          cols="20"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div ngModelGroup="identification">
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" ngModel name="rememberMe" />
+        Remember Me!
+      </label>
+    </div>
+
+    <select ngModel name="drop">
+      <option value="1">Option1</option>
+      <option value="2">Option2</option>
+      <option value="3">Option3</option>
+    </select>
+
+    <label>Male</label>
+    <input value="Male" type="radio" ngModel name="radio1" />
+
+    <label>FeMale</label>
+    <input value="FeMale" type="radio" ngModel name="radio1" />
+
+    <label>other</label>
+    <input value="other" type="radio" ngModel name="radio1" />
+  </div>
+
+  <p>{{ f.value | json }}</p>
+
+  <button
+    [disabled]="f.invalid"
+    type="submit"
+    class="btn btn-primary mt-5"
+    (click)="log1()"
+  >
+    Submit
+  </button>
+</form>
+
+
+<input [(ngModel)] = "phoneNumber" *ngIf="!phoneNumnerEntered">
+<p>
+  کد تایید را وارد کنید
+</p>
+<p *ngIf="phoneNumnerEntered">کد به شماره موبایل {{phoneNumber}}</p>
